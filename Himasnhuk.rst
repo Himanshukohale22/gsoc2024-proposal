@@ -66,7 +66,7 @@ As BeaglBboneBlack(am335x) support librobotcontrol package due to modification i
 we need to modify the device tree overlay for beaglebone-AI64. beaglebone-AI64 is TDMA4VM soc based board which support the j721e device tree binary file.
 Here is the example of device tree for beaglebone-AI64. in which GPIO LED are configured.
 
-.. image:: /home/himanshu/Documents/gsoc_repo/beaglebone/gsoc.beagleboard.io/proposals/Himanshuk/board-block-diagram.png
+.. image:: /proposals/Himanshuk/board-block-diagram.png
     :alt: beaglebone-AI64
     :align: center  
 
@@ -101,7 +101,7 @@ code::
     };
 
 
-.. image:: /home/himanshu/Documents/gsoc_repo/beaglebone/gsoc.beagleboard.io/proposals/Himanshuk/device_tree.png
+.. image:: /proposals/Himanshuk/device_tree.png
     :alt: Device tree Implementation
     :align: center
 
@@ -116,7 +116,7 @@ its process in which, need to create custom cape gateware for different examples
 The PolarFire SoC device used on BeagleV-Fire is an SoC FPGA which includes a RISC-V processors subsystem and a PolarFire FPGA on the same die. The gateware configures the Microcprosessor subsystem’s hardware and programs the FPGA with digital logic allowing customization of the use of BeagleV-Fire P8/P9 expansion headers.
 The cape gateware handles the P8 and P9 connectors signals.
 
-.. image:: /home/himanshu/Documents/gsoc_repo/beaglebone/gsoc.beagleboard.io/proposals/Himanshuk/Gateware-Flow-simplified-overview.png
+.. image:: /proposals/Himanshuk/Gateware-Flow-simplified-overview.png
     :alt: BeagleV-fire gateware architecture
     :align: center
 
