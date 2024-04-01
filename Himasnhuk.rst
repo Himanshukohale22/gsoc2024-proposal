@@ -1,4 +1,4 @@
-.. _gsoc-proposal-Himanshu kohale:
+.. _gsoc-proposal-Himanshu Kohale:
 
 Librobotcontrol support for newer boards
 ########################################
@@ -6,15 +6,15 @@ Librobotcontrol support for newer boards
 Introduction
 *************
 
-Introducing librobotcontrol package support with newer beagleboards like BeagleV-fire and BeagleBone-AI64.
+Introducing librobotcontrol package support with newer boards.
 
 Summary links
 =============
 
-- **Contributor:** `Himanshu kohale <https://forum.beagleboard.org/u/ayush1325>`_
-- **Mentors:** `Jason Kridner <https://forum.beagleboard.org/u/jkridner>`_, `Deepak khatri <https://forum.beagleboard.org/u/lorforlinux/summary>`_
-- **Code:** `Google Summer of Code / Himanshuk / librobotcontrol · GitLab <https://openbeagle.org/Himanshuk/librobotcontrol>`_
-- **Documentation:** `Himanshuk / docs.beagleboard.io · GitLab <https://openbeagle.org/Himanshuk/docs.beagleboard.io>`_
+- **Contributor:** `Himanshu Kohale <https://forum.beagleboard.org/u/ayush1325>`_
+- **Mentors:** `Jason Kridner <https://forum.beagleboard.org/u/jkridner>`_, `Deepak Khatri <https://forum.beagleboard.org/u/lorforlinux/summary>`_
+- **Code:**  TBD
+- **Documentation:**  TBD
 - **GSoC:** NA
 
 Status
@@ -25,17 +25,19 @@ This project is currently just a proposal.
 Proposal
 ========
 
-Completed all the requirements listed on the `ideas page <https://gsoc.beagleboard.io/ideas/>`_.
-- Source dive and get to know with packages and examples.
-- The code for the cross-compilation task can be found, Submitted through the pull request :- `pull request <https://github.com/jadonk/gsoc-application/pull/191>`_ .
-- Proposal :- `librobotcontrol support for newer boards <https://gsoc-beagleboard-io-himanshuk-849994ca45b62e3ba1c5b2e74d1ebb233.beagleboard.io/proposals/himanshu-kohale.html>`_ .
+Completed all the requirements listed on the `ideas page <https://gsoc.beagleboard.io/ideas/>`_
+
+* Created accounts on `openbeagle <https://openbeagle.org/Himanshuk>`_ , `forum <https://forum.beagleboard.org/u/himanshuk/summary>`_ , `Discord <https://discord.com/users/869908108565168198>`_ 
+* Source dive and get to know with packages and examples.
+* The code for the cross-compilation task can be found, Submitted through the pull request :- `pull request <https://github.com/jadonk/gsoc-application/pull/191>`_ 
+* Proposal :- `librobotcontrol support for newer boards <https://gsoc-beagleboard-io-himanshuk-afa51c0f037cce3ef5f7bf31158de2bf3.beagleboard.io/proposals/himanshuk.html>`_ 
 
 About 
 =====
 
-- **Forum:** :fab:`discourse` `Himanshuk (Himanshu kohale) <https://forum.beagleboard.org/u/himanshuk/summary>`_
-- **OpenBeagle:** :fab:`gitlab` `Himanshuk (Himanshu kohale) <https://openbeagle.org/Himanshuk>`_
-- **Github:** :fab:`github` `Himanshukohale22 (Himanshu kohale) <https://github.com/Himanshukohale22>`_
+- **Forum:** :fab:`discourse` `Himanshuk (Himanshu Kohale) <https://forum.beagleboard.org/u/himanshuk/summary>`_
+- **OpenBeagle:** :fab:`gitlab` `Himanshuk (Himanshu Kohale) <https://openbeagle.org/Himanshuk>`_
+- **Github:** :fab:`github` `Himanshukohale22 (Himanshu Kohale) <https://github.com/Himanshukohale22>`_
 - **School:** :fas:`school` `Veermata Jijabai Technological Institute <https://vjti.ac.in/>`_
 - **Country:** :fas:`flag` India
 - **Primary language:** :fas:`language` English, Hindi, Marathi
@@ -45,48 +47,56 @@ About
 Project
 ********
 
-**Project name:** librobotcontrol support for newer boards (AI-64 and BeagleV-Fire).
+**Project name:** librobotcontrol support for newer boards .
 
 Description
 ============
 
-Librobotcontrol is package of C library which contains examples and testing programs for Robotic control projects used by `robotic cape <https://www.beagleboard.org/boards/beaglebone-robotics-cape>`_  which is sold by beagleboard.org,
-which supports the BBB and AI thanks to Deepak khatri who Previouly worked upon cape compatibility layer on BBB. 
-There are many capes beagleboard sold with compatibility for beagleboards but with robotic cape only BBB and AI support the librobotcontrol packages, we need to refine the device trees overlays to use this librobotcontrol package with AI-64 and BeagleV-Fire. 
-The main goal for this projects is to Update librobotcontrol for Robotics Cape on BeagleBone AI-64(TDA4VM) and BeagleV-Fire(polarV-soc).
-librobotcontrol required various pheripherals for sensors and motor configuration with BeagleBoards. 
-Different pheripherals are to be updated for various sensors, motors and satellite modules are  to be used with newer bords.
+Librobotcontrol is package of C library which contains examples and testing programs for Robotic control projects used by `robotic-cape <https://www.beagleboard.org/boards/beaglebone-robotics-cape>`_  which is sold by beagleboard.org.
+BeaglBboneBlack(BBB) supports the librobotcontrol package thanks to Deepak khatri, Who Previouly worked upon cape compatibility layer on BBB.
+BeaglBboneBlack support robotic-cape cape with librobotcontrol package due to creation of device tree ovelayes which identify the robotics cape and symlink help to address the location of specific peripherals in data structure.
+as below is simple dts example for accesing GPIO's for blink LED's.
+since P9_12 supports the GPIO's functinoality as output signal. 
 
-- I2C 
-- SPI 
-- UART 
-- GPIO 
+.. code-block::
 
-As BeaglBboneBlack(am335x) support librobotcontrol package due to modification in devic tree overlayes for robotic cape.
-we need to modify the device tree overlay for beaglebone-AI64. beaglebone-AI64 is TDMA4VM soc based board which support the j721e device tree binary file.
-Here is the example of device tree for beaglebone-AI64. in which GPIO LED are configured.
+    /{
+        compatible = "ti,BeaglBbone-Black";
+        part-number = "DM-GPIO-TEST";
+        version = "00A0";
+        fragment@0{
+            pinctrl-singl.pins = <
+                0X078 0x07 /* connected LED, resister address and offset */ 
+            
+            >
+        
+        } 
+    }
 
-.. image:: https://docs.beagleboard.org/latest/_images/board-block-diagram.svg
-    :alt: beaglebone-AI64
-    :align: center  
+    
+   
+
+Main goal of project is to update librobotcontrol package for beaglebone-AI(am5x), beaglebone-AI64(j721e) and beaeglV-fire(olarV-soc) boards.
+Primarily librobotcontrol support all the boards but not able to make roboitic-cape as flexible as BBB board for librobotcontrol package.
+
+BeagleBone-AI support librobotcontrol package but its been draft. and there is not a stable device tree overlays for robotic cape in AI image.
+So for using package, have to check the passed results for various drivers and use cape with AI, and make changes accordingly.
+BeagleBone AI is based on the Texas Instruments AM5729 dual-core Cortex-A15 SoC with flexible BeagleBone Black header and mechanical compatibility.
+which supports the AM572x device tree binary files. this .dtb file will include in binary file (.dts) files in AI which will help to call root nodes to create device tree for cape.
+but as AI-support the cape, there is only need to cross verify the package and update accordingly.
+
+**BeagleBone-AI64**
 
 BeagleBone AI-64 uses TI J721E-family TDA4VM system-on-chip (SoC) which is part of the K3 Multicore SoC architecture.
-Each TI evm has an unique device tree binary file required by the kernel. As BeaglBboneBlack need (ti,am335x) similarly beaglebone-AI64 support.
+Each TI evm has an unique device tree binary file required by the kernel. As BeaglBboneBlack need (ti,am335x) similarly beaglebone-AI64 support (ti,j721e) device tree binary (.dtb).
+BeagleBone AI-64 also support librobotcontrol packages but there are less tutorial and not refine code for support librobotcontrol package with new boards. Need to refine the device trees overlays to use this librobotcontrol package with AI-64.
+As in librobotcontrol there is no robotic-cape dtb support for beaglebone-AI64 we need to write the device tree ovelays with (ti,j721e) binary file (.dtb).
 
+How it will be possible, see an example for blink LEDs via device tree ovelay which is for GPIO's:
 
-base_dtb = "k3-j721e-beagleboneai64.dts;
+.. code-block:: 
 
-specific compatibility/model for beaglebone AI-64
-
-compatible = "beagle,j721e-beagleboneai64", "ti,j721e";
-model = "BeagleBoard.org BeagleBone AI-64";
-
-here the example for custom device tree for external LED gpio support on beaglebone-AI64.
-Easy LED control through GPIO ddriver.
-
-code::
-
-    &{/chosen} {
+             &{/chosen} {
 	overlays {
 		BONE-LED_P8_03 = __TIMESTAMP__;
 	    };
@@ -101,46 +111,38 @@ code::
     };
 
 
-.. image:: https://devicetree-specification.readthedocs.io/en/stable/_images/graphviz-58c8267ade85edeca7b1b0299af2b1e473987ddc.png
+
+
+Implementation of device tree :
+
+.. image :: https://devicetree-specification.readthedocs.io/en/stable/_images/graphviz-58c8267ade85edeca7b1b0299af2b1e473987ddc.png
     :alt: Device tree Implementation
     :align: center
 
-Similar to above GPIO example for custom device tree overlay we need to write for varoius pheripherals according to P8 and P9 header expansion details for robotics cape. 
-Each I2C, SPI, UART pheripherals have specific register addresess based on which bone identify the device connected to pheripherals.understanding the hardware of robotic-cape and requirements according to librobotcontrol package we 
-can write customized device tree overlay for robotic cape `interface <https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec#cite_note-2>`_ with beaglebone-AI64 expansion headers.
+**BeagleV-Fire** 
 
+BeagleV®-Fire is a revolutionary SBC powered by the Microchip’s PolarFire® MPFS025T RISC-V System on Chip (SoC) with FPGA fabric.
+It has the same P8 & P9 cape header pins as BeagleBone Black allowing to stack BeagleBone cape on top to expand it’s capability. Built around the powerful and energy-efficient RISC-V instruction set architecture (ISA) along with its versatile FPGA fabric.
+BeagleV-Fire also support the robotic cape with librobotcontrol package and cape gateware for robotic cape is preinstalled in V-fire image `here <https://openbeagle.org/himanshuk/gateware/-/tree/main/sources/FPGA-design/script_support/components/CAPE/ROBOTICS?ref_type=heads>`_ .
+but as BBB support the librobotcontrol with more functionality and flexible application, beagleV-fire is not capable for librobotcontrol package due to less number of device_tree fragment present in robotic-cape (.dts) file which is pre-installed in V-fire image.
+With help of customization for cape gateware in V-fire which Provide more flexibility to board with cape, librobotcontrol package will support V-fire with robotic cape.
 
+V-fire Gateware architecture:
 
-In case of using librobotcontrol package in BeagleV-Fire there is already support for robotic-cape but only device tree Nodes are for PWM's,I2C and GPIO's. as it need to update according to librobotcontrol example as it will support the librobotcontrol package.
-its process in which, need to create custom cape gateware for different examples like blinky, motor and communication interfaces.it will be done as `here <>`_ is the guide for customized gateware for beagleV-fire.
-The PolarFire SoC device used on BeagleV-Fire is an SoC FPGA which includes a RISC-V processors subsystem and a PolarFire FPGA on the same die. The gateware configures the Microcprosessor subsystem’s hardware and programs the FPGA with digital logic allowing customization of the use of BeagleV-Fire P8/P9 expansion headers.
-The cape gateware handles the P8 and P9 connectors signals.
-
-.. image:: https://docs.beagleboard.org/latest/_images/Gateware-Flow-simplified-overview.png
-    :alt: BeagleV-fire gateware architecture
+.. image :: https://docs.beagleboard.org/latest/_images/Gateware-Flow-simplified-overview.png
+    :alt: V-fire Gateware architecture
     :align: center
 
-robotics_cape.dts file in gateware of beagleV-fire PWM and GPIO's are configured we need to write device tree sript for I2C, SPI and UART which will need to support librobotcontrol package.
+In `robotics_cape.dts <https://openbeagle.org/himanshuk/gateware/-/blob/main/sources/FPGA-design/script_support/components/CAPE/ROBOTICS/device-tree-overlay/robotics-cape.dtso?ref_type=heads>`_ file in cape gateware of beagleV-fire are used PWM and GPIO's, we need to write device tree sript for I2C, SPI and UART and also add simlink which will need to support librobotcontrol package.
+
 
 
 Previous work:-
 
 Previously Deepak khatri who worked upon the cape compatibility for beagleboards. use the robotic cape for various tasks. 
 using pre-work upon robotic cape, i can take a deep dive to robotic cape compatibility with BeaglBboneBlack (BBB) and how its works.
-In previous gsoc-2022 participation kai yamada work upon same project which was about robotic-cape support with BeagleBone-AI (BB-AI).
-In both projects implementation was about the device tree overlayes for BBB and AI for specific pheripherals to enabling functionality of PWM, I2C and SPI and UART for robotic capes.  
-
-Problem and solution:
-
-BB AI-64:
-BeagleBone-AI64 is ti,j721e based TDA4VM SOC board which is for AI and Machine learning applications. to support librobotcontrol package there is not proper device tree overlay for specific robotic-cape.
-In case of BB AI-64 board(TDA4VM) support j721e device tree which will helpful to creat .dts files for robotic cape.
-
-BeagleV-fire:
-There is device tree overlayes gateware for beagleV-fire to use with robotic capes to support librobotcontrol but its only unable SPI and GPIO's pheripheral. Need to update cape gateware.
-first thing to do is to creat device tree overlayes for beagleV-fire using reference as `BeaglBboneBlack(BBB) device tree overlayes <https://github.com/beagleboard/librobotcontrol/blob/master/device_tree/dtb-4.14-ti/am335x-bone-common-universal-pins.dtsi>`_ also 
-there are some examples available to customized use of `device trees with relay capes <https://www.beagleboard.org/blog/2022-02-15-using-device-tree-overlays-example-on-beaglebone-cape-add-on-boards>`_ 
-which can be very useful during deep understand and functionality of board.
+In previous gsocted with one of Bea-2022 participation kai yamada work upon same project which was about robotic-cape support with BeagleBone-AI (BB-AI).
+In both projects implementation was about the device tree overlayes for BBB and AI for specific pheripherals to enabling functionality of PWM, I2C and SPI and UART for robotic-cape.  
 
 
 Software
@@ -148,7 +150,6 @@ Software
 
 - Device tree's overlays for beagleboards will be used.The project requires the use of the device tree compiler (dtc) for compiling the device tree source (ex. *.dts, *.dtsi) files.
 - Primarily VScode and gitlab with web-IDE is use in this project for deep dive into code and firmware of librobotcontrol and rc (robot control library) examples.
-- Eclipes IDE can be used for starting phase of project.
 - C language.
 
 Hardware
@@ -157,6 +158,7 @@ Hardware
 A list of hardware that you are going to use for this project.
 
 - `Beaglebone Black <https://www.digikey.in/en/products/detail/beagleboard-by-seeed-studio/102110420/12719590?cur=INR&lang=en&utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=PMax%20Shopping_Product_High%20ROAS&utm_term=&productid=12719590&utm_content=&utm_id=go_cmp-20122528480_adg-_ad-__dev-c_ext-_prd-12719590_sig-Cj0KCQjw8J6wBhDXARIsAPo7QA8aIQNqlJuRD5bNfrHXhCPfGk6LSU2nxmVaauLzHgc6BreuyUqskmEaAsJoEALw_wcB&gad_source=1&gclid=Cj0KCQjw8J6wBhDXARIsAPo7QA8aIQNqlJuRD5bNfrHXhCPfGk6LSU2nxmVaauLzHgc6BreuyUqskmEaAsJoEALw_wcB>`_
+- `BeagleBone-AI <https://www.digikey.in/en/products/detail/seeed-technology-co-ltd/102110362/10492208>`_
 - `Beaglebone AI 64 <https://www.digikey.in/en/products/detail/beagleboard-by-seeed-studio/102110646/15929655?cur=INR&lang=en&utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=PMax%20Shopping_Product_High%20ROAS&utm_term=&productid=15929655&utm_content=&utm_id=go_cmp-20122528480_adg-_ad-__dev-c_ext-_prd-15929655_sig-Cj0KCQjw8J6wBhDXARIsAPo7QA8OHJluOkNDsca6onRdfGL-SiAdurymvfiCgGq1_E1YqW2WvDsyjZYaAnUmEALw_wcB&gad_source=1&gclid=Cj0KCQjw8J6wBhDXARIsAPo7QA8OHJluOkNDsca6onRdfGL-SiAdurymvfiCgGq1_E1YqW2WvDsyjZYaAnUmEALw_wcB>`_
 - `BeagleV-fire <https://www.digikey.in/en/products/detail/beagleboard-by-seeed-studio/102110898/21706497>`_
 - Beaglebone-capes
@@ -236,18 +238,14 @@ Community Bonding Period (May 1st - May 26th)
 - At current period of time, all the required hardware will be available.
 - Setup all the beagleboard hardware (Flashing OS and test hello world).
 - Check all hardware with beagleboard like DC motors, Servo motors and available sensors.
-- Use robotic cape with beagleboard BeaglBboneBlack (BBB) and librobotcontrol.
-- Creat merge request for accesing BBB pins.
-- Creat example for devic tree overlay with AI-64 and creat merge request.
+- Use robotic-cape with beagleboard BeaglBboneBlack (BBB) and librobotcontrol.
+- Use robotic-cape with BeagleBone-AI.
 
 Coding begins (May 27th)
 =========================
 
-- Discuss with mentor for librobotcontrol support package with Ai-64. 
 - Understand device tree overlays for BeaglBboneBlack (BBB) and AI written for robotic cape. 
-- Start to write Device tree for PWM 
-- Test Device tree with AI-64.
-- Creat merge request for PWM test.
+- Start to write Device tree for GPIO's and PWM support for AI-64. 
 
 Milestone #1, Introductory YouTube video (June 3rd)
 ===================================================
@@ -260,7 +258,7 @@ Milestone #2 (June 10th)
 ==========================
 
 - For RoboticsCape, Test a device tree overlay to allow AI-64 to light the power LEDs with GPIO support.
-- Test PWM devic tree overlay with robotics cape with help of Hardware specification and check with oscilloscope.
+- Test PWM Device tree overlay with robotics-cape with help of Hardware specification and check with oscilloscope.
 - Get feeback from mentors.
 
 
@@ -268,24 +266,25 @@ Milestone #3 (June 17th)
 =========================
 
 - Write I2C device tree for AI-64.
+- Test I2C with IMU and robotic-cape.
 - Get feedback from mentor.
 
 Milestone #4 (June 24th)
 ==========================
 
-- Test I2C with IMU and robotic cape.
-- Creat merge request for I2C Device tree overlays.
+- Create merge request for I2C Device tree overlays.
 - Write SPI device tree overlay for AI-64.
-- Test with robotic cape.
-- get feedback from mentor.
+- Test with robotic-cape.
+- Get feedback from mentor.
 
 Milestone #5 (July 1st)
 ========================
 
-- Creat .dts file for robotic cape which will support AI-64 using pre-work.
+- Create RoboticsCape.dts file for robotic-cape which will support AI-64 using pre-work.
 - Test .dts file with robotic cape with AI-64.
 - Test example of librobotcontrol with AI-64.
 - get feedback from mentor.
+- Creat merge request for RoboticsCape.dts.
 
 Submit midterm evaluations (July 8th)
 =====================================
@@ -297,23 +296,22 @@ Submit midterm evaluations (July 8th)
 Milestone #6 (July 15th)
 =========================
 
-- Discuss with mentor for librobotcontrol support package with beaeglV-fire board as librobotcontrol support beaeglV-fire.
-- Test RoboticsCape with cape gateware for beagleV-fire.
+- Test RoboticsCape with cape gateware for beagleV-fire pre-installed in image.
 - Understand the customization process for cape Gateware. 
 
 Milestone #7 (July 22nd)
 =========================
 
 - Customized LED example for robotic-cape gateware.
-- Test GPIO's, Robotic cape with beaeglV-fire.
-- Creat merge request for LED blink with beaeglV-fire. 
+- Test GPIO's, Robotic cape with beaglV-fire.
+- Create merge request for LED blink with beaglV-fire. 
 
 Milestone #8 (July 29th)
 =========================
 
 - Examine SPI support for beagleV-fire with robotic-cape.
-- Create I2C device tree to test barometer on robotic cape.
-- Creat merge request for I2C support. 
+- Create I2C device tree to test barometer on robotic-cape.
+- Create merge request for I2C support. 
 - Discuss results and features with mentor.
 
 Milestone #9 (Aug 5th)
@@ -321,13 +319,13 @@ Milestone #9 (Aug 5th)
 
 - Test all pre-work for librobotcontrol and robotic-cape with beaeglV-fire.
 - Upgrade robotic_cape.dts file gateware for beaeglV-fire using pre-work.
-- Creat Documentation and feeback from mentors.
+- Create Documentation and feeback from mentors.
 
 Milestone #10 (Aug 12th)
 ========================
 
-- Finalize the work on robotic-cape.dts for beaeglV-fire and test example of librobotcontrol.
-- Creat documentation for current process.
+- Finalize the work on robotic-cape.dts for beaeglV-fire and test examples of librobotcontrol.
+- Create documentation for current process.
 - Fixing other bugs, typos, etc. found during documentation.
 
 Final YouTube video (Aug 19th)
@@ -336,7 +334,7 @@ Final YouTube video (Aug 19th)
 - Submit final project video, submit final work to GSoC site 
 and complete final mentor evaluation.
 
-Final Submission (Aug 24nd)
+Final Submission (Aug 24th)
 ============================
 
 .. important::
@@ -361,17 +359,17 @@ Experience and approch
 ***********************
 
 Experience: 
-    • I’m well experienced with embedded system and C . I’ve in-hand experienced with embedded programming and hardware design for various boards and projects.
-    • Below are some projects which are about embedded system and robotics.
+    • I’m well experienced with Embedded System and C. I’ve in-hand experienced with Embedded programming and Hardware design for various boards and projects.
+    • Here are my projects which demonstrate my proficiency in Embedded system and Robotics.
     1. `Martian rover used in  IRC (International rover challenge ) <https://github.com/vishwaspace>`_
-        Martian rover is a prototype of curosity the nasa mars rover which performed funcion like soil testing, sample collection and monitoring planet.
-        project required embedded hardware and firmware design for motor control and sensors configuration with ROS. 
+        Martian rover is a prototype of curosity the nasa mars rover which performed function like soil testing, sample collection and monitoring planet.
+        Project required Embedded hardware and firmware design for motor control, arm control and science sensor's configuration with ROS. 
     2. `STM32 custom board <https://github.com/Himanshukohale22/stm32-custom-board-v1.2>`_
-        STM32 was custom boad which is made in purpose to learn embedded programming and hardware. it's a open source development project. 
+        STM32 was custom boad which is made in purpose to learn Embedded programming and hardware design. it's a open source development project. 
     3. `Vaayu – AQI and various concentration calculation for gases present in air <https://github.com/Himanshukohale22/FYP_GreenSpace>`_ 
-        VAAYU is air quility measument device which calibrate the different gases concentration and display with a GUI and TFT-display.
+        VAAYU is air quality monitoring system device which calibrate the different gases concentration and display with a GUI and TFT-display.
     4. `TVC rocketry – Thrust vector control <https://github.com/Himanshukohale22/CYRUS>`_
-        TVC rocketry is project based learning model about Thrust vector control rockets, which based on PID implementations and senors configuration.
+        TVC rocketry is learning based model project about Thrust vector control rockets, which based on PID implementation and sensors configuration.
 	
 	More projects done by me can be found on my `github <https://github.com/Himanshukohale22>`_.
     • I’ve designed various double and four layer board for clients and projects  using  Kicad , Eagle and Altium designer `(Designs) <github/Himanshu/my_designs>`_. And this shows that I’ve very good understanding for reading schematics and Circuit design for embedded development, which is required for This project. 
@@ -417,7 +415,7 @@ Please complete the requirements listed in the `General Requirements <https://gs
 - All prerequisite tasks have been completed.
  * Source dive for Librobotcontrol packages and read all the documentation for packages
  * Check hardware specification, setup and device trees for BBB.
- * Here the 'Hello world' task Pull request : `merge request <https://github.com/jadonk/gsoc-application/pull/191>`_
+ * Here the 'Hello world' cross-compilation task Pull request : `merge request <https://github.com/jadonk/gsoc-application/pull/191>`_
 
 
 Suggestions
